@@ -57,16 +57,10 @@ class Circle(Figure):
 class Triangle(Figure):
     sides_count = 3
 
-    def __init__(self, color: list, *sides: int):
-        super().__init__(color, *sides)
-        a, b, c = self.get_sides()
-        self.__p = (a + b + c) / 2
-        self.__a, self.__b, self.__c = a, b, c
-
     def get_square(self):
-        return math.sqrt(
-            self.__p * (self.__p - self.__a) * (self.__p - self.__b) * (self.__p - self.__c)
-        )
+        a, b, c = self.get_sides()
+        p = (a + b + c) / 2  
+        return math.sqrt(p * (p - a) * (p - b) * (p - c))
 
 
 class Cube(Figure):
